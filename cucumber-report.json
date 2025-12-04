@@ -1,0 +1,131 @@
+[
+  {
+    "description": "  Como un cliente de Sauce Demo\n  Quiero poder iniciar sesión, agregar productos al carrito And completar una compra\n  Para poder adquirir los productos que necesito",
+    "elements": [
+      {
+        "description": "",
+        "id": "funcionalidad-e-commerce-de-sauce-demo;inicio-de-sesión-exitoso-con-credenciales-válidas",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Inicio de sesión exitoso con credenciales válidas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 605917999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7430644900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "el usuario ingresa el nombre de usuario \"standard_user\"",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2064004499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "el usuario ingresa la contraseña \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2027854299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "el usuario hace clic en el botón de inicio de sesión",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2121738199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "el usuario debería ser redirigido a la página de productos",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11132100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "el inventario de productos debería ser visible",
+            "match": {
+              "location": "tests\\steps\\sauceDemo.steps.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5765600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 279782199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 237431099
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@E01",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "funcionalidad-e-commerce-de-sauce-demo",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Funcionalidad E-commerce de Sauce Demo",
+    "tags": [],
+    "uri": "tests\\features\\AutoSauceDemoFront.feature"
+  }
+]
