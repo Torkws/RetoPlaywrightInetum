@@ -38,6 +38,14 @@ Then('el inventario de productos debería ser visible', async function () {
   await loginPage.verifyInventoryVisible();
 });
 
+Then('debería mostrarse el mensaje de error {string}', async function (errorMessage) {
+  // TODO: Implementar verificación del mensaje de error
+});
+
+Then('el usuario debería permanecer en la página de inicio de sesión', async function () {
+  // TODO: Implementar verificación de que el usuario permanece en login
+});
+
 // After hook to close browser
 const { After } = require('@cucumber/cucumber');
 After(async function () {

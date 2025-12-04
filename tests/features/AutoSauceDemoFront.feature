@@ -6,7 +6,7 @@ Feature: Funcionalidad E-commerce de Sauce Demo
   Background:
     Given que el usuario navega a la página de inicio de sesión de Sauce Demo
 
-    @E01
+  @testFront @E01
   Scenario: Inicio de sesión exitoso con credenciales válidas
     When el usuario ingresa el nombre de usuario "standard_user"
     And el usuario ingresa la contraseña "secret_sauce"
