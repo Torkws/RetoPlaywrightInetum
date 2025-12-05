@@ -1,6 +1,6 @@
 const { Given, When, Then, setDefaultTimeout } = require('@cucumber/cucumber');
 const { chromium } = require('@playwright/test');
-const LoginPage = require('../pages/Login.page');
+const LoginPage = require('../pages/login.page');
 const SalesPage = require('../pages/sales.page');
 const ShoppingCartPage = require('../pages/shoppingCart.page');
 const BrowserManager = require('../utils/browserManager');
@@ -46,12 +46,4 @@ Then('debería mostrarse el mensaje de error {string}', async function (errorMes
 
 Then('el usuario debería permanecer en la página de inicio de sesión', async function () {
   await this.loginPage.verifyRemainsOnLoginPage();
-});
-
-// After hook to close browser
-const { After } = require('@cucumber/cucumber');
-After(async function () {
-  if (this.browserManager) {
-    await this.browserManager.close();
-  }
 });
