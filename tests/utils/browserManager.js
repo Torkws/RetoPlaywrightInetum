@@ -9,7 +9,7 @@ class BrowserManager {
 
   async launch(browserType = 'chromium', options = {}) {
     const defaultOptions = {
-      headless: false,
+      headless: process.env.CI === 'true' || false,
       ...options
     };
 
