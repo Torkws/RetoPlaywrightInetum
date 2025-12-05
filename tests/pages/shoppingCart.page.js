@@ -1,5 +1,4 @@
 const { expect } = require('@playwright/test');
-const { faker } = require('@faker-js/faker');
 
 // Variables globales de tiempo de espera
 const waitTimeInteraction = 1000;
@@ -13,36 +12,8 @@ class ShoppingCartPage {
     this.cartItemQuantity = '[data-test="item-quantity"]';
     this.cartItemPrice = '[data-test="inventory-item-price"]';
     this.checkoutButton = '[data-test="checkout"]';
-    this.firstNameInput = '[data-test="firstName"]';
-    this.lastNameInput = '[data-test="lastName"]';
-    this.postalCodeInput = '[data-test="postalCode"]';
-    this.continueButton = '[data-test="continue"]';
-    this.finishButton = '[data-test="finish"]';
     this.confirmationMessage = '[data-test="complete-header"]';
     this.confirmationIcon = '[data-test="pony-express"]';
-    this.checkoutOverview = '[data-test="checkout-summary-container"]';
-  }
-
-  // Método para generar data mock usando Faker
-  generateMockData(fieldType) {
-    switch (fieldType.toLowerCase()) {
-      case 'firstname':
-        return faker.person.firstName();
-      case 'lastname':
-        return faker.person.lastName();
-      case 'postalcode':
-        return faker.location.zipCode();
-      case 'email':
-        return faker.internet.email();
-      case 'phone':
-        return faker.phone.number();
-      case 'address':
-        return faker.location.streetAddress();
-      case 'city':
-        return faker.location.city();
-      default:
-        return faker.string.alphanumeric(10);
-    }
   }
 
   async verifyCartPageDisplayed() {
@@ -73,33 +44,6 @@ class ShoppingCartPage {
 
   async clickCheckoutButton() {
     await this.page.locator(this.checkoutButton).click();
-    await this.page.waitForTimeout(waitTimeInteraction);
-  }
-
-  async enterPersonalInformation(firstName = null, lastName = null, postalCode = null) {
-    // Si no se proporcionan valores, generar datos mock
-    const finalFirstName = firstName || this.generateMockData('firstName');
-    const finalLastName = lastName || this.generateMockData('lastName');
-    const finalPostalCode = postalCode || this.generateMockData('postalCode');
-
-    await this.page.locator(this.firstNameInput).fill(finalFirstName);
-    await this.page.locator(this.lastNameInput).fill(finalLastName);
-    await this.page.locator(this.postalCodeInput).fill(finalPostalCode);
-    await this.page.waitForTimeout(waitTimeInteraction);
-  }
-
-  async clickContinueButton() {
-    await this.page.locator(this.continueButton).click();
-    await this.page.waitForTimeout(waitTimeInteraction);
-  }
-
-  async reviewOrderInformation() {
-    await expect(this.page.locator(this.checkoutOverview)).toBeVisible();
-    await this.page.waitForTimeout(waitTimeInteraction);
-  }
-
-  async clickFinishButton() {
-    await this.page.locator(this.finishButton).click();
     await this.page.waitForTimeout(waitTimeInteraction);
   }
 

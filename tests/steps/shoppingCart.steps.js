@@ -29,18 +29,22 @@ Then('el usuario hace clic en el botón {string}', async function (buttonText) {
   if (buttonText === 'Checkout') {
     await this.shoppingCartPage.clickCheckoutButton();
   } else if (buttonText === 'Continue') {
-    await this.shoppingCartPage.clickContinueButton();
+    await this.checkoutUserPage.clickContinueButton();
   } else if (buttonText === 'Finish') {
-    await this.shoppingCartPage.clickFinishButton();
+    await this.checkoutOverviewPage.clickFinishButton();
   }
 });
 
 Then('el usuario ingresa sus datos personales para la compra', async function () {
-  await this.shoppingCartPage.enterPersonalInformation();
+  await this.checkoutUserPage.enterCheckoutInformation();
+});
+
+Then('el usuario ingresa sus datos personales {string}, {string} y {string}', async function (firstName, lastName, postalCode) {
+  await this.checkoutUserPage.enterCheckoutInformationFailure(firstName, lastName, postalCode);
 });
 
 Then('el usuario revisa la información del pedido', async function () {
-  await this.shoppingCartPage.reviewOrderInformation();
+  await this.checkoutOverviewPage.reviewOrderInformation();
 });
 
 Then('debería mostrarse el mensaje de confirmación {string}', async function (expectedMessage) {
@@ -49,4 +53,8 @@ Then('debería mostrarse el mensaje de confirmación {string}', async function (
 
 Then('el ícono de confirmación debería ser visible', async function () {
   await this.shoppingCartPage.verifyConfirmationIconVisible();
+});
+
+Then('debería mostrarse el mensaje de error en el formulario {string}', async function (expectedErrorMessage) {
+  await this.checkoutUserPage.verifyErrorMessage(expectedErrorMessage);
 });

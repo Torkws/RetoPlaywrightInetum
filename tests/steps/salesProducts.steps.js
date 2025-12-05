@@ -36,3 +36,11 @@ When('el usuario selecciona la opción de ordenamiento {string}', async function
 Then('los productos deberían estar ordenados por {string} en orden {string}', async function (criteria, order) {
   await this.salesPage.verifyProductsSortedBy(criteria, order);
 });
+
+// Composite step - Flujo completo hasta checkout
+When('el usuario completa el flujo hasta el checkout con {string}', async function (productName) {
+  await this.loginPage.verifyRedirectToProducts();
+  await this.salesPage.clickAddToCartOrRemoveForProduct('Add to cart', productName);
+  await this.salesPage.clickCartIcon();
+  await this.shoppingCartPage.clickCheckoutButton();
+});

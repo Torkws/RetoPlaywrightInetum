@@ -3,6 +3,8 @@ const { chromium } = require('@playwright/test');
 const LoginPage = require('../pages/login.page');
 const SalesPage = require('../pages/sales.page');
 const ShoppingCartPage = require('../pages/shoppingCart.page');
+const CheckoutUserPage = require('../pages/checkoutUser.page');
+const CheckoutOverviewPage = require('../pages/checkoutOverview.page');
 const BrowserManager = require('../utils/browserManager');
 
 setDefaultTimeout(30000);
@@ -14,6 +16,8 @@ Given('que el usuario navega a la página de inicio de sesión de Sauce Demo', a
   this.loginPage = new LoginPage(this.page);
   this.salesPage = new SalesPage(this.page);
   this.shoppingCartPage = new ShoppingCartPage(this.page);
+  this.checkoutUserPage = new CheckoutUserPage(this.page);
+  this.checkoutOverviewPage = new CheckoutOverviewPage(this.page);
   
   await this.loginPage.navigate();
 });
