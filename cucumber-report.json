@@ -1,77 +1,90 @@
 [
   {
-    "description": "  Como un cliente de Sauce Demo\n  Quiero poder iniciar sesión, agregar productos al carrito And completar una compra\n  Para poder adquirir los productos que necesito",
+    "description": "",
     "elements": [
       {
         "description": "",
-        "id": "funcionalidad-e-commerce-de-sauce-demo;fallo-en-inicio-de-sesión-con-usuario-bloqueado",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;inicio-de-sesión-exitoso-con-credenciales-válidas",
         "keyword": "Scenario",
-        "line": 26,
-        "name": "Fallo en inicio de sesión con usuario bloqueado",
+        "line": 7,
+        "name": "Inicio de sesión exitoso con credenciales válidas",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 7,
+            "line": 4,
             "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:14"
+              "location": "tests\\steps\\login.steps.js:11"
             },
             "result": {
               "status": "passed",
-              "duration": 7250886300
+              "duration": 7331096599
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 27,
-            "name": "el usuario ingresa el nombre de usuario \"locked_out_user\"",
+            "line": 8,
+            "name": "el usuario ingresa el nombre de usuario \"standard_user\"",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:22"
+              "location": "tests\\steps\\login.steps.js:22"
             },
             "result": {
               "status": "passed",
-              "duration": 2060128199
+              "duration": 2061917399
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 28,
+            "line": 9,
             "name": "el usuario ingresa la contraseña \"secret_sauce\"",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:26"
+              "location": "tests\\steps\\login.steps.js:26"
             },
             "result": {
               "status": "passed",
-              "duration": 2028100099
+              "duration": 2020643400
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 29,
+            "line": 10,
             "name": "el usuario hace clic en el botón de inicio de sesión",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:30"
+              "location": "tests\\steps\\login.steps.js:30"
             },
             "result": {
               "status": "passed",
-              "duration": 2072367500
+              "duration": 2107901899
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 30,
-            "name": "debería mostrarse el mensaje de error \"Epic sadface: Sorry, this user has been locked out.\"",
+            "line": 11,
+            "name": "el usuario debería ser redirigido a la página de productos",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:43"
+              "location": "tests\\steps\\login.steps.js:35"
             },
             "result": {
               "status": "passed",
-              "duration": 13256199
+              "duration": 7586599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "el inventario de productos debería ser visible",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4278699
             }
           },
           {
@@ -79,28 +92,861 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 409674999
+              "duration": 411569999
             }
           }
         ],
         "tags": [
           {
             "name": "@testFront",
-            "line": 25
+            "line": 6
+          },
+          {
+            "name": "@login",
+            "line": 6
+          },
+          {
+            "name": "@E01",
+            "line": 6
+          },
+          {
+            "name": "@happyPath",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;fallo-en-inicio-de-sesión-con-credenciales-inválidas",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Fallo en inicio de sesión con credenciales inválidas",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7190763200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "el usuario ingresa el nombre de usuario \"invalid_user\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2056371299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "el usuario ingresa la contraseña \"asdfasdfa213\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2016270800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "el usuario hace clic en el botón de inicio de sesión",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2054410300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "debería mostrarse el mensaje de error \"Epic sadface: Username and password do not match any user in this service\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8997999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "el usuario debería permanecer en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6664999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 385133499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 14
+          },
+          {
+            "name": "@login",
+            "line": 14
+          },
+          {
+            "name": "@E02",
+            "line": 14
+          },
+          {
+            "name": "@unhappyPath",
+            "line": 14
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;fallo-en-inicio-de-sesión-con-usuario-bloqueado",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Fallo en inicio de sesión con usuario bloqueado",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7264370500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "el usuario ingresa el nombre de usuario \"locked_out_user\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2037288799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "el usuario ingresa la contraseña \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2025443300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "el usuario hace clic en el botón de inicio de sesión",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2056420099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "debería mostrarse el mensaje de error \"Epic sadface: Sorry, this user has been locked out.\"",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8040899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 365221799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 22
+          },
+          {
+            "name": "@login",
+            "line": 22
           },
           {
             "name": "@E03",
-            "line": 25
+            "line": 22
+          },
+          {
+            "name": "@unhappyPath",
+            "line": 22
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "funcionalidad-e-commerce-de-sauce-demo",
+    "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo",
     "line": 1,
     "keyword": "Feature",
-    "name": "Funcionalidad E-commerce de Sauce Demo",
+    "name": "Funcionalidad de Login para E-commerce de Sauce Demo",
     "tags": [],
-    "uri": "tests\\features\\AutoSauceDemoFront.feature"
+    "uri": "tests\\features\\loginTest.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;se-valida-que-el-usuario-pueda-agregar-productos-al-carrito-de-compras-satisfactoriamente",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Se valida que el usuario pueda agregar productos al carrito de compras satisfactoriamente",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7212471400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "el usuario \"standard_user\" ha iniciado sesión correctamente con el pass \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6140984799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "el usuario debería ser redirigido a la página de productos",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4080199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "el inventario de productos debería ser visible",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3569400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "el usuario hace clic en el botón \"Add to cart\" para \"Sauce Labs Backpack\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1025908300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "la insignia del carrito de compras debería mostrar \"1\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1008168399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "el botón \"Remove\" debería ser visible para \"Sauce Labs Backpack\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1018766000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 370057399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 6
+          },
+          {
+            "name": "@saleProducts",
+            "line": 6
+          },
+          {
+            "name": "@E01",
+            "line": 6
+          },
+          {
+            "name": "@happyPath",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;valida-que-el-usuario-pueda-agregar-múltiples-productos-al-carrito-satisfactoriamente",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Valida que el usuario pueda agregar múltiples productos al carrito satisfactoriamente",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7227793999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "el usuario \"standard_user\" ha iniciado sesión correctamente con el pass \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6151722800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "el usuario debería ser redirigido a la página de productos",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3065600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "el usuario agrega \"Sauce Labs Backpack\" al carrito",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1031569399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "el usuario agrega \"Sauce Labs Bike Light\" al carrito",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1034937899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "el usuario agrega \"Sauce Labs Bolt T-Shirt\" al carrito",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1036929099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "la insignia del carrito de compras debería mostrar \"3\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1017456300
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 340072700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 16
+          },
+          {
+            "name": "@saleProducts",
+            "line": 16
+          },
+          {
+            "name": "@E02",
+            "line": 16
+          },
+          {
+            "name": "@happyPath",
+            "line": 16
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;se-valida-que-el-usuario-pueda-visualizar-correctamente-los-productos-en-el-carrito-de-compras",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Se valida que el usuario pueda visualizar correctamente los productos en el carrito de compras",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7205983999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 28,
+            "name": "el usuario \"standard_user\" ha iniciado sesión correctamente con el pass \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6160510200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "el usuario debería ser redirigido a la página de productos",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3269599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "el usuario agrega \"Sauce Labs Backpack\" al carrito",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1042031100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "el usuario hace clic en el ícono del carrito de compras",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1041577499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "debería mostrarse la página del carrito",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1009310400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "el producto \"Sauce Labs Backpack\" debería ser visible en el carrito",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1008130699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "la cantidad del producto debería ser \"1\"",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1019246900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "el precio del producto debería mostrarse correctamente en formato $0.00",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1019966599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 335208199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 26
+          },
+          {
+            "name": "@saleProducts",
+            "line": 26
+          },
+          {
+            "name": "@E03",
+            "line": 26
+          },
+          {
+            "name": "@happyPath",
+            "line": 26
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo;completar-proceso-de-compra-exitosamente-con-inpus-válidos",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Completar proceso de compra exitosamente con inpus válidos",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7287307799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 39,
+            "name": "el usuario \"standard_user\" ha iniciado sesión correctamente con el pass \"secret_sauce\"",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6161846799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "el usuario debería ser redirigido a la página de productos",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4212700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "el usuario agrega \"Sauce Labs Backpack\" al carrito",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1025993399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 42,
+            "name": "el usuario hace clic en el ícono del carrito de compras",
+            "match": {
+              "location": "tests\\steps\\salesProducts.steps.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1044386800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "el usuario hace clic en el botón \"Checkout\"",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1039019599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "el usuario ingresa sus datos personales para la compra",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1068028699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "el usuario hace clic en el botón \"Continue\"",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1055480599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "el usuario revisa la información del pedido",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1004907800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "el usuario hace clic en el botón \"Finish\"",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1035700899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 48,
+            "name": "debería mostrarse el mensaje de confirmación \"Thank you for your order!\"",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1018650699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "el ícono de confirmación debería ser visible",
+            "match": {
+              "location": "tests\\steps\\shoppingCart.steps.js:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1004399299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 369444399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testFront",
+            "line": 37
+          },
+          {
+            "name": "@saleProducts",
+            "line": 37
+          },
+          {
+            "name": "@E04",
+            "line": 37
+          },
+          {
+            "name": "@happyPath",
+            "line": 37
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "funcionalidad-de-login-para-e-commerce-de-sauce-demo",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Funcionalidad de Login para E-commerce de Sauce Demo",
+    "tags": [],
+    "uri": "tests\\features\\salesProductsTest.feature"
   }
 ]

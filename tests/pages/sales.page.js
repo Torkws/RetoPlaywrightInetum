@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
 
 // Variables globales de tiempo de espera
-const waitTimeInteraction = 2000;
+const waitTimeInteraction = 1000;
 
 class SalesPage {
   constructor(page) {
@@ -11,19 +11,14 @@ class SalesPage {
   }
 
   // Método para obtener el selector del botón "Add to cart" de un producto específico
-  getAddToCartButton(productName) {
-    // Buscar el contenedor del producto por su nombre y luego el botón
-    return `//div[@class="inventory_item"][.//div[@class="inventory_item_name" and text()="${productName}"]]//button[contains(@id, "add-to-cart")]`;
+  getAddToCartOrRemoveButton(buttonText, productName) {
+    return `[data-test="inventory-item-description"]:has([data-test="inventory-item-name"]:has-text("${productName}")) button:has-text("${buttonText}")`;
   }
 
-  // Método para obtener el selector del botón "Remove" de un producto específico
-  getRemoveButton(productName) {
-    return `//div[@class="inventory_item"][.//div[@class="inventory_item_name" and text()="${productName}"]]//button[contains(@id, "remove")]`;
-  }
 
-  async clickAddToCartForProduct(productName) {
-    const addToCartButton = this.getAddToCartButton(productName);
-    await this.page.locator(addToCartButton).click();
+  async clickAddToCartOrRemoveForProduct(buttonText,productName) {
+    const addToCartOrRemoveButton = this.getAddToCartOrRemoveButton(buttonText,productName);
+    await this.page.locator(addToCartOrRemoveButton).click();
     await this.page.waitForTimeout(waitTimeInteraction);
   }
 
@@ -31,11 +26,19 @@ class SalesPage {
     const badge = this.page.locator(this.cartBadge);
     await expect(badge).toBeVisible();
     await expect(badge).toHaveText(expectedCount);
+    await this.page.waitForTimeout(waitTimeInteraction);
+
   }
 
-  async verifyRemoveButtonVisible(productName) {
-    const removeButton = this.getRemoveButton(productName);
+  async verifyRemoveButtonVisible(buttonText, productName) {
+    const removeButton = this.getAddToCartOrRemoveButton(buttonText, productName);
     await expect(this.page.locator(removeButton)).toBeVisible();
+    await this.page.waitForTimeout(waitTimeInteraction);
+  }
+
+  async clickCartIcon() {
+    await this.page.locator(this.cartIcon).click();
+    await this.page.waitForTimeout(waitTimeInteraction);
   }
 }
 
