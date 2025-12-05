@@ -8,6 +8,9 @@ class SalesPage {
     this.page = page;
     this.cartBadge = '.shopping_cart_badge';
     this.cartIcon = '.shopping_cart_link';
+    this.sortDropdown = '[data-test="product-sort-container"]';
+    this.productNames = '[data-test="inventory-item-name"]';
+    this.productPrices = '[data-test="inventory-item-price"]';
   }
 
   // Método para obtener el selector del botón "Add to cart" de un producto específico
@@ -38,6 +41,38 @@ class SalesPage {
 
   async clickCartIcon() {
     await this.page.locator(this.cartIcon).click();
+    await this.page.waitForTimeout(waitTimeInteraction);
+  }
+
+  async selectSortOption(sortOption) {
+    await this.page.locator(this.sortDropdown).selectOption({ label: sortOption });
+    await this.page.waitForTimeout(waitTimeInteraction);
+  }
+
+  async verifyProductsSortedBy(criteria, order) {
+    await this.page.waitForTimeout(1000); // Esperar a que se aplique el ordenamiento
+
+    if (criteria === 'nombre') {
+      const productNames = await this.page.locator(this.productNames).allTextContents();
+      const sortedNames = [...productNames].sort();
+      
+      if (order === 'descendente') {
+        sortedNames.reverse();
+      }
+      
+      expect(productNames).toEqual(sortedNames);
+    } else if (criteria === 'precio') {
+      const productPriceTexts = await this.page.locator(this.productPrices).allTextContents();
+      const productPrices = productPriceTexts.map(price => parseFloat(price.replace('$', '')));
+      const sortedPrices = [...productPrices].sort((a, b) => a - b);
+      
+      if (order === 'descendente') {
+        sortedPrices.reverse();
+      }
+      
+      expect(productPrices).toEqual(sortedPrices);
+    }
+    
     await this.page.waitForTimeout(waitTimeInteraction);
   }
 }

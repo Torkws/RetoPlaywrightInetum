@@ -27,3 +27,12 @@ Then('la insignia del carrito de compras debería mostrar {string}', async funct
 Then('el botón {string} debería ser visible para {string}', async function (buttonText, productName) {
   await this.salesPage.verifyRemoveButtonVisible(buttonText, productName);
 });
+
+// Sorting steps
+When('el usuario selecciona la opción de ordenamiento {string}', async function (sortOption) {
+  await this.salesPage.selectSortOption(sortOption);
+});
+
+Then('los productos deberían estar ordenados por {string} en orden {string}', async function (criteria, order) {
+  await this.salesPage.verifyProductsSortedBy(criteria, order);
+});

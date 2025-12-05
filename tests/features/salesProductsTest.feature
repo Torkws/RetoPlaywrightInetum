@@ -47,3 +47,18 @@ Feature: Funcionalidad de Login para E-commerce de Sauce Demo
     And el usuario hace clic en el botón "Finish"
     Then debería mostrarse el mensaje de confirmación "Thank you for your order!"
     And el ícono de confirmación debería ser visible
+
+
+ @testFront @saleProducts @E05 @happyPath
+  Scenario Outline: Verificar funcionalidad de ordenamiento de productos en el carrito de compras
+    Given el usuario "standard_user" ha iniciado sesión correctamente con el pass "secret_sauce"
+    And el usuario debería ser redirigido a la página de productos
+    When el usuario selecciona la opción de ordenamiento "<opcionOrdenamiento>"
+    Then los productos deberían estar ordenados por "<criterioOrdenamiento>" en orden "<tipoOrden>"
+
+    Examples:
+      | opcionOrdenamiento  | criterioOrdenamiento | tipoOrden   |
+      | Name (A to Z)       | nombre               | ascendente  |
+      | Name (Z to A)       | nombre               | descendente |
+      | Price (low to high) | precio               | ascendente  |
+      | Price (high to low) | precio               | descendente |
