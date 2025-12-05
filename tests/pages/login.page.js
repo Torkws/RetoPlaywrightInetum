@@ -11,6 +11,7 @@ class LoginPage {
     this.passwordInput = '[data-test="password"]';
     this.loginButton = '[data-test="login-button"]';
     this.inventoryContainer = '[data-test="inventory-container"]';
+    this.errorMessage = '[data-test="error"]';
   }
 
   async navigate() {
@@ -41,7 +42,23 @@ class LoginPage {
     await expect(this.page.locator(this.inventoryContainer)).toBeVisible();
   }
 
-  
+  async verifyErrorMessage(expectedMessage) {
+    const errorElement = this.page.locator(this.errorMessage);
+    await expect(errorElement).toBeVisible();
+    await expect(errorElement).toHaveText(expectedMessage);
+  }
+
+  async verifyRemainsOnLoginPage() {
+    await expect(this.page).toHaveURL(/.*saucedemo\.com\/?$/);
+    await expect(this.page.locator(this.loginButton)).toBeVisible();
+  }
+
+  async login(username, password) {
+    await this.navigate();
+    await this.enterUsername(username);
+    await this.enterPassword(password);
+    await this.clickLoginButton();
+  }
 }
 
 module.exports = LoginPage;

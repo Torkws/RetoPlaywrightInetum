@@ -1,9 +1,10 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+const { Given, When, Then, setDefaultTimeout } = require('@cucumber/cucumber');
 const { chromium } = require('@playwright/test');
 const LoginPage = require('../pages/Login.page');
 const BrowserManager = require('../utils/browserManager');
 
-let browser;
+setDefaultTimeout(30000);
+
 let page;
 let loginPage;
 let browserManager;
@@ -39,12 +40,14 @@ Then('el inventario de productos debería ser visible', async function () {
 });
 
 Then('debería mostrarse el mensaje de error {string}', async function (errorMessage) {
-  // TODO: Implementar verificación del mensaje de error
+  await loginPage.verifyErrorMessage(errorMessage);
 });
 
 Then('el usuario debería permanecer en la página de inicio de sesión', async function () {
-  // TODO: Implementar verificación de que el usuario permanece en login
+  await loginPage.verifyRemainsOnLoginPage();
 });
+
+
 
 // After hook to close browser
 const { After } = require('@cucumber/cucumber');

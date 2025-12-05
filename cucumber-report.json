@@ -4,95 +4,74 @@
     "elements": [
       {
         "description": "",
-        "id": "funcionalidad-e-commerce-de-sauce-demo;inicio-de-sesión-exitoso-con-credenciales-válidas",
+        "id": "funcionalidad-e-commerce-de-sauce-demo;fallo-en-inicio-de-sesión-con-usuario-bloqueado",
         "keyword": "Scenario",
-        "line": 10,
-        "name": "Inicio de sesión exitoso con credenciales válidas",
+        "line": 26,
+        "name": "Fallo en inicio de sesión con usuario bloqueado",
         "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 605917999
-            }
-          },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 7,
             "name": "que el usuario navega a la página de inicio de sesión de Sauce Demo",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:12"
+              "location": "tests\\steps\\sauceDemo.steps.js:14"
             },
             "result": {
               "status": "passed",
-              "duration": 7430644900
+              "duration": 7250886300
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 11,
-            "name": "el usuario ingresa el nombre de usuario \"standard_user\"",
+            "line": 27,
+            "name": "el usuario ingresa el nombre de usuario \"locked_out_user\"",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:20"
+              "location": "tests\\steps\\sauceDemo.steps.js:22"
             },
             "result": {
               "status": "passed",
-              "duration": 2064004499
+              "duration": 2060128199
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 12,
+            "line": 28,
             "name": "el usuario ingresa la contraseña \"secret_sauce\"",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:24"
+              "location": "tests\\steps\\sauceDemo.steps.js:26"
             },
             "result": {
               "status": "passed",
-              "duration": 2027854299
+              "duration": 2028100099
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 13,
+            "line": 29,
             "name": "el usuario hace clic en el botón de inicio de sesión",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:28"
+              "location": "tests\\steps\\sauceDemo.steps.js:30"
             },
             "result": {
               "status": "passed",
-              "duration": 2121738199
+              "duration": 2072367500
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 14,
-            "name": "el usuario debería ser redirigido a la página de productos",
+            "line": 30,
+            "name": "debería mostrarse el mensaje de error \"Epic sadface: Sorry, this user has been locked out.\"",
             "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:33"
+              "location": "tests\\steps\\sauceDemo.steps.js:43"
             },
             "result": {
               "status": "passed",
-              "duration": 11132100
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "el inventario de productos debería ser visible",
-            "match": {
-              "location": "tests\\steps\\sauceDemo.steps.js:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5765600
+              "duration": 13256199
             }
           },
           {
@@ -100,22 +79,18 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 279782199
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 237431099
+              "duration": 409674999
             }
           }
         ],
         "tags": [
           {
-            "name": "@E01",
-            "line": 9
+            "name": "@testFront",
+            "line": 25
+          },
+          {
+            "name": "@E03",
+            "line": 25
           }
         ],
         "type": "scenario"
